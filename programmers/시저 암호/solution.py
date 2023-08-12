@@ -1,23 +1,28 @@
 // [문제 링크]: https://school.programmers.co.kr/learn/courses/30/lessons/12926
 
 def solution(s, n):
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    alpha = 'abcdefghijklmnopqrstuvwxyz'
+    ALPHA = alpha.upper()
+
     alpha_dict = {}
     alpha_dict2 = {}
-    
-    for idx, val in enumerate(alphabet):
-        alpha_dict[val] = idx
-        alpha_dict2[idx] = val
+    ALPHA_DICT = {}
+    ALPHA_DICT2 = {}
+    for idx, val in enumerate(alpha):
+        alpha_dict[idx] = val
+        ALPHA_DICT[idx] = val.upper()
+        alpha_dict2[val] = idx
+        ALPHA_DICT2[val.upper()] = idx
 
     answer = []
     for i in s:
         if i == ' ':
             answer.append(i)
-        elif i.islower():
-            shifted_idx = (alpha_dict[i] + n) % 26
-            answer.append(alpha_dict2[shifted_idx])
-        elif i.isupper():
-            shifted_idx = (alpha_dict[i.lower()] + n) % 26
-            answer.append(alpha_dict2[shifted_idx].upper())
-    
-    return ''.join(answer)
+        elif i.lower()==i:
+            answer.append(alpha_dict[(alpha_dict2[i]+n)%26])
+
+        elif i.upper() == i:
+            answer.append(ALPHA_DICT[(ALPHA_DICT2[i]+n)%26])
+
+    answer = ''.join(answer)
+    return answer
