@@ -11,9 +11,6 @@ def solution(players, callings):
         temp = playing[name]     
         temp2 = playing[name]-1  
 
-# temp = playing['kai']
-# temp2 = playing['kai']-1
-
         playing2[temp], playing2[temp2] = playing2[temp2], playing2[temp]
 
         playing[playing2[temp]] = temp
