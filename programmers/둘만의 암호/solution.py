@@ -11,9 +11,6 @@ def solution(s, skip, index):
         alphabet[char] = idx
         alphabet_idx[idx] = char
 
-    S = []
-    Skip = []
-
     answer = ''
 
     for i in s:
