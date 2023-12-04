@@ -1,7 +1,8 @@
 // [문제 링크]: https://school.programmers.co.kr/learn/courses/30/lessons/131532
 
 -- 코드를 입력하세요
-SELECT YEAR(B.SALES_DATE) AS YEAR,
+SELECT 
+    YEAR(B.SALES_DATE) AS YEAR,
     MONTH(B.SALES_DATE) AS MONTH,
     A.GENDER,
     COUNT(DISTINCT A.USER_ID) AS USERS
